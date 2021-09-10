@@ -1,0 +1,150 @@
+@-webkit-keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: #000;
+  overflow: hidden;
+}
+
+.spinner div:first-child {
+  display: block;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border-radius: 50%;
+  box-shadow: 0 3px 3px 0 rgb(255, 255, 255);
+  transform: translate3d(0, 0, 0);
+  animation: spin 2s linear infinite;
+}
+
+.spinner div:first-child:after,
+.spinner div:first-child:before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.spinner div:first-child:before {
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  box-shadow: 0 3px 3px 0 rgb(255, 0, 0);
+  -webkit-animation: spin 3s linear infinite;
+  animation: spin 3s linear infinite;
+}
+
+.spinner div:first-child:after {
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  box-shadow: 0 3px 3px 0 rgb(255, 255, 255);
+  animation: spin 1.5s linear infinite;
+}
+
+.loaded_hiding .spinner {
+  transition: 0.3s opacity;
+  opacity: 0;
+}
+
+.loaded {
+  .spinner {
+    display: none;
+    z-index: -2;
+  }
+}
+
+.load-wrapp {
+  position: relative;
+  left: 180%;
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin: 0 10px 10px 0;
+  padding: 20px 20px 20px;
+  border-radius: 5px;
+  text-align: center;
+  @media (max-width: 1100px) {
+    left: 130%;
+  }
+  @media (max-width: 1100px) {
+    left: 130%;
+  }
+  @media (max-width: 850px) {
+    left: 82%;
+  }
+  @media (max-width: 590px) {
+    left: 36%;
+  }
+}
+
+.load-wrapp p {
+  padding: 0 0 20px;
+}
+.load-wrapp:last-child {
+  margin-right: 0;
+}
+
+.line {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  background-color: #4b9cdb;
+}
+
+.load .line:nth-last-child(1) {
+  animation: loading 0.6s 0.1s linear infinite;
+}
+.load .line:nth-last-child(2) {
+  animation: loading 0.6s 0.2s linear infinite;
+}
+.load .line:nth-last-child(3) {
+  animation: loading 0.6s 0.3s linear infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 15px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
